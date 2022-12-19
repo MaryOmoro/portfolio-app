@@ -4,8 +4,6 @@ from django.utils.text import slugify
 from ckeditor.fields import RichTextField
 from ckeditor_uploader.fields import RichTextUploadingField
 
-# Create your models here.
-
 
 class Profile(models.Model):
 	user = models.OneToOneField(User, null=True, blank=True, on_delete=models.CASCADE)
@@ -35,8 +33,9 @@ class Post(models.Model):
 	created = models.DateTimeField(auto_now_add=True)
 	active = models.BooleanField(default=False)
 	featured = models.BooleanField(default=False)
-	tags = models.ManyToManyField(Tag, null=True, blank=True)
+	tags = models.ManyToManyField(Tag)
 	slug = models.SlugField(null=True, blank=True)
+
 
 	def __str__(self):
 		return self.headline

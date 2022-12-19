@@ -1,8 +1,53 @@
 
 {% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+	<a class="navbar-brand" href="#">Navbar</a>
+  
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+  
+	  <span class="navbar-toggler-icon"></span>
+  
+	</button>
+  
+	<div class="collapse navbar-collapse" id="navbarNav">
+  
+	  <ul class="navbar-nav">
+  
+		<li class="nav-item active">
+  
+		  <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+  
+		</li>
+  
+		<li class="nav-item">
+  
+		  <a class="nav-link" href="{% url 'login' %}">Login</a>
+  
+		</li>
+  
+
+		<li>
+			<a class="nav-link" href="{% url 'account' %}">Account</a>
+		</li>
+		
+		<li>
+			<a class="nav-link" href="{% url 'home' %}#contact">Contact</a>
+		</li>
+		
+		<li class="nav-item">
+  
+			<a class="nav-link" href="{% url 'logout' %}">Logout</a>
+		  </li>
+  
+  
+	  </ul>
+  
+	</div>
+  
+  </nav>
 <div class="nav-wrapper">
 
-	<!-- Link around dots-wrapper added after tutorial video -->
 	<a href="{% url 'home' %}">
 		<div class="dots-wrapper">
 			<div id="dot-1" class="browser-dot"></div>
@@ -50,7 +95,6 @@
 	}
 
 	    
-	// Attaching the event listener function to window's resize event
 	
 	window.addEventListener("resize", function(){
 		let width = document.documentElement.clientWidth;

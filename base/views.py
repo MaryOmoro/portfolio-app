@@ -1,5 +1,3 @@
-
-
 from django.shortcuts import render, redirect
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
@@ -12,13 +10,10 @@ from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .decorators import *
-
 from .forms import PostForm, CustomUserCreationForm, ProfileForm, UserForm
 from .filters import PostFilter
-
 from .models import *
 
-# Create your views here.
 
 def home(request):
 	posts = Post.objects.filter(active=True, featured=True)[0:3]
@@ -30,13 +25,14 @@ def posts(request):
 	posts = Post.objects.filter(active=True)
 	myFilter = PostFilter(request.GET, queryset=posts)
 	posts = myFilter.qs
-
-	page = request.GET.get('page')
+    
+	if request.method == 'POST':
+	    page = request.GET.get('page')
 
 	paginator = Paginator(posts, 5)
 
 	try:
-		posts = paginator.page(page)
+		posts = paginator.page('page')
 	except PageNotAnInteger:
 		posts = paginator.page(1)
 	except EmptyPage:
@@ -65,7 +61,7 @@ def post(request, slug):
 def profile(request):
 	return render(request, 'base/profile.html')
 
-#CRUD VIEWS
+
 @admin_only
 @login_required(login_url="home")
 def createPost(request):
@@ -123,11 +119,11 @@ def sendEmail(request):
 			request.POST['subject'],
 			template,
 			settings.EMAIL_HOST_USER,
-			['dennisivy11@gmail.com']
+			['maryomoro2017@gmail.com']
 			)
 
 		email.fail_silently=False
-		email.send()
+		email.send("SEND")
 
 	return render(request, 'base/email_sent.html')
 
@@ -139,7 +135,6 @@ def loginPage(request):
 		email = request.POST.get('email')
 		password =request.POST.get('password')
 
-		#Little Hack to work around re-building the usermodel
 		try:
 			user = User.objects.get(email=email)
 			user = authenticate(request, username=user.username, password=password)

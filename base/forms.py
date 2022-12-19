@@ -2,7 +2,6 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-
 from .models import Post, Profile
 
 
@@ -11,6 +10,14 @@ class CustomUserCreationForm(UserCreationForm):
 	class Meta:
 		model = User
 		fields = ['first_name', 'last_name', 'email', 'password1', 'password2']
+    
+	def clean_email(self):
+		email = self.cleaned_data['email']
+		if not email:
+			raise ValidationError("This field is required.")
+		if User.objects.filter(email=self.cleaned_data['email']).count():
+			raise ValidationError("Email is taken.")
+		return self.cleaned_data['email']
 
 class PostForm(ModelForm):
 
