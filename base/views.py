@@ -10,7 +10,7 @@ from django.contrib import messages
 from django.contrib.auth import logout, login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from .decorators import *
-from .forms import PostForm, CustomUserCreationForm, ProfileForm, UserForm
+from .forms import PostForm, CustomUserCreationForm, ProfileForm, UserForm, ContactForm
 from .filters import PostFilter
 from .models import *
 from django.core.mail import send_mail, BadHeaderError
@@ -19,6 +19,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+
 
 
 
@@ -112,15 +113,30 @@ def deletePost(request, slug):
 
 
 
-def sendEmail(request):
+def contact(request):
+	form_class = ContactForm
 
 	if request.method == 'POST':
-
-		template = render_to_string('base/email_template.html', {
+		form = ContactForm(request.POST)
+	    
+		if form.is_valid():
+			contact_name = request.POST.get(
+				'name', '')
+			contact_email = request.POST.get(
+				'email', '')
+			form_content = request.POST.get('message', '')
+		
+        
+		
+		template = render_to_string('base/contact_template.html', {
 			'name':request.POST['name'],
 			'email':request.POST['email'],
 			'message':request.POST['message'],
 			})
+			
+	
+
+
 
 		email = EmailMessage(
 			request.POST['subject'],
@@ -131,8 +147,10 @@ def sendEmail(request):
 
 		email.fail_silently=False
 		email.send("SEND")
-
-	return render(request, 'base/email_sent.html')
+		messages.success(request, "Thanks for reaching out!  Your message was successfully sent. I will do my best to get back to you in a timely manner")
+		
+		
+	return render(request, 'base/contact.html')
 
 def loginPage(request):
 	if request.user.is_authenticated:

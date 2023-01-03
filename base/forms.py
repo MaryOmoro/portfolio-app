@@ -5,6 +5,7 @@ from django.contrib.auth.models import User
 from .models import Post, Profile
 
 
+
 class CustomUserCreationForm(UserCreationForm):
 
 	class Meta:
@@ -40,3 +41,12 @@ class ProfileForm(ModelForm):
 		model = Profile
 		fields = '__all__'
 		exclude = ['user']
+
+
+class ContactForm(forms.Form):
+    contact_name = forms.CharField(required=True)
+    contact_email = forms.EmailField(required=True)
+    content = forms.CharField(
+        required=True,
+        widget=forms.Textarea
+    )

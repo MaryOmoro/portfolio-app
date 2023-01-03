@@ -13,7 +13,7 @@ urlpatterns = [
 	path('delete_post/<slug:slug>/', views.deletePost, name="delete_post"),
 
 
-	path('send_email/', views.sendEmail, name="send_email"),
+	path('contact/', views.contact, name="contact"),
 
 	path('login/', views.loginPage, name="login"),
 	path('register/', views.registerPage, name="register"),
@@ -22,6 +22,7 @@ urlpatterns = [
 	path('account/', views.userAccount, name="account"),
 	path('update_profile/', views.updateProfile, name="update_profile"),
 
-    path("password_reset", views.password_reset_request, name="password_reset"),     
+    path("password_reset", views.password_reset_request, name="password_reset"), 
+	   
 
 ]

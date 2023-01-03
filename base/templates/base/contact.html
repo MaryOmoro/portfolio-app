@@ -1,0 +1,75 @@
+
+{% extends 'base/main.html' %}
+
+{% block content %}
+
+<style type="text/css">
+	html, body{
+		height: 100%;
+	}
+
+	#page-wrapper{
+		height: 100%;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		text-align: center;
+		background-color: #1d9cd6;
+	}
+
+	#success-box{
+		max-width: 800px;
+		height: auto;
+		background-color: #fff;
+		border:1px solid #888;
+		border-radius: 5px;
+		padding: 15px;
+	}
+
+	#success-box p{
+		font-size: 18px;
+		font-family: 'Times New Roman', Times, serif;
+	}
+
+</style>
+
+
+
+<section class="s1">
+	<div class="main-container">
+		<a href=""></a>
+		<h3 style="text-align: center;">Get In Touch</h3>
+
+		<form id="contact-form" method="POST" action="{% url 'contact' %}">
+			{% csrf_token %}
+			<a name="contact"></a>
+
+			<label>Name</label>
+			<input required class="input-field" type="text" name="name">
+
+			<label>Subject</label>
+			<input required class="input-field" type="text" name="subject">
+
+			<label>Email</label>
+			<input required class="input-field" type="text" name="email">
+
+			<label>Message</label>
+			<textarea required class="input-field" name="message"></textarea>
+
+			<input id="submit-btn" type="submit" value="Send">
+		</form>
+	</div>
+	
+	<div class="social-links">
+		<h3>Find me on Twitter</h3>
+		<br>
+		<a target="_blank" href="https://twitter.com/omoro_m3">Twitter: @Omoro_m3</a>
+	</div>
+</section>
+
+<div class="succcess-box">
+	<h1>Thanks for reaching out!</h1>
+	<p>Your message has been successfully sent. Will get back to you.</p>
+</div>
+
+{% endblock content %}
