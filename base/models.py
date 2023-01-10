@@ -70,3 +70,12 @@ class PostComment(models.Model):
 	def created_dynamic(self):
 		now = timezone.now()
 		return now
+
+
+class Contact(models.Model):
+	name = models.CharField(max_length=100, blank=True)
+	content = models.CharField(max_length=100, blank=True)
+	email = models.EmailField(blank=True)
+	
+	def __str__(self):
+		return self.name

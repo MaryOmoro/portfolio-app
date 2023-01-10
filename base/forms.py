@@ -2,7 +2,7 @@ from django import forms
 from django.forms import ModelForm
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
-from .models import Post, Profile
+from .models import Post, Profile, Contact
 
 
 
@@ -43,10 +43,8 @@ class ProfileForm(ModelForm):
 		exclude = ['user']
 
 
-class ContactForm(forms.Form):
-    contact_name = forms.CharField(required=True)
-    contact_email = forms.EmailField(required=True)
-    content = forms.CharField(
-        required=True,
-        widget=forms.Textarea
-    )
+class ContactForm(ModelForm):
+	class Meta:
+		model = Contact
+		fields = '__all__'
+    

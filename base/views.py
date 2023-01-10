@@ -19,6 +19,7 @@ from django.db.models.query_utils import Q
 from django.utils.http import urlsafe_base64_encode
 from django.contrib.auth.tokens import default_token_generator
 from django.utils.encoding import force_bytes
+from django.http import JsonResponse
 
 
 
@@ -115,41 +116,43 @@ def deletePost(request, slug):
 
 def contact(request):
 	form_class = ContactForm
+	form = form_class(request.POST or None)
 
-	if request.method == 'POST':
+	if request.method == "POST" and request.accepts('text/html, */*'):
 		form = ContactForm(request.POST)
 	    
 		if form.is_valid():
-			contact_name = request.POST.get(
-				'name', '')
-			contact_email = request.POST.get(
-				'email', '')
-			form_content = request.POST.get('message', '')
+			name = form.cleaned_data['name']
 		
-        
-		
-		template = render_to_string('base/contact_template.html', {
-			'name':request.POST['name'],
-			'email':request.POST['email'],
-			'message':request.POST['message'],
-			})
+
+			form.save()
+			return JsonResponse({"name":name}, status=200)
+	    
+		else:
+			errors = form.errors.as_json()
+			return JsonResponse({"errors": errors}, status=400)
 			
+	return render(request, "base/contact.html", {"form": form})
+			
+		
+    
+	template = render_to_string('base/contact_template.html', {
+		'name':request.POST['name'],
+		'email':request.POST['email'],
+		'message':request.POST['message'],
+		})
+			
+	email = EmailMessage(request.POST['subject'],
+		template,
+		settings.EMAIL_HOST_USER,
+		['maryomoro2017@gmail.com']
+		)
+		
+	email.fail_silently=False
+	email.send("SEND")
+	messages.success(request, "Thanks for reaching out!  Your message was successfully sent. I will do my best to get back to you in a timely manner")
+		
 	
-
-
-
-		email = EmailMessage(
-			request.POST['subject'],
-			template,
-			settings.EMAIL_HOST_USER,
-			['maryomoro2017@gmail.com']
-			)
-
-		email.fail_silently=False
-		email.send("SEND")
-		messages.success(request, "Thanks for reaching out!  Your message was successfully sent. I will do my best to get back to you in a timely manner")
-		
-		
 	return render(request, 'base/contact.html')
 
 def loginPage(request):

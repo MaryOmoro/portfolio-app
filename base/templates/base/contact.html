@@ -1,5 +1,6 @@
 
 {% extends 'base/main.html' %}
+{% load crispy_forms_tags %}
 
 {% block content %}
 
@@ -67,9 +68,28 @@
 	</div>
 </section>
 
-<div class="succcess-box">
-	<h1>Thanks for reaching out!</h1>
-	<p>Your message has been successfully sent. Will get back to you.</p>
-</div>
-
 {% endblock content %}
+
+{% block javascript %}
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $('#contactForm').submit(function () {
+                $.ajax({
+                    data: $(this).serialize(), 
+                    type: $(this).attr('method'), 
+                    url: "{% url 'contact' %}",
+                    success: function (response) {
+                        alert(" Thanks for reaching out!  Your message was successfully sent." + response.name);
+                    },
+                    error: function (response) {
+                        alert(response.responseJSON.errors);
+                        console.log(response.responseJSON.errors)
+                    }
+                });
+                return false;
+            });
+        })
+    </script>
+    {% endblock javascript %}
