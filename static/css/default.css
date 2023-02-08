@@ -10,8 +10,8 @@
 
 	--themeDotBorder:#24292e;
 
-	--previewBg:rgb(251, 249, 243, 0.8);
-	--previewShadow:#f0ead6;
+	--previewBg:rgba(30, 247, 247, 0.8);
+	--previewShadow:#13d5db;
 
     
 	--buttonColor:rgb(17, 145, 219);
@@ -62,13 +62,13 @@ h6 { font-size: 16px;}
 
 
 .s1{
-	background-color: var(--mainColor);
+	background-color: #17a2b8;
 	border-bottom:1px solid var(--borderColor);
 	overflow:auto;
 }
 
 .s2{
-	background-color: var(--secondaryColor);
+	background-color: #17a2b8;
 	border-bottom:1px solid var(--borderColor);
 	overflow:auto;
 }
@@ -135,22 +135,6 @@ h6 { font-size: 16px;}
 	margin-left:5px;
 }
 
-.dots-wrapper{
-	display: flex;
-	padding: 10px;
-}
-
-#dot-1{
-	background-color:  #FC6058;
-}
-
-#dot-2{
-	background-color:  #FEC02F;
-}
-
-#dot-3{
-	background-color:  #2ACA3E;
-}
 
 .browser-dot{
 	background-color: black;
@@ -164,6 +148,13 @@ h6 { font-size: 16px;}
 	box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
 
 }
+
+.logo{
+    height: 50px;
+    width: 80px;
+}
+
+
 
 
 /* DROP DOWN MENU START */
