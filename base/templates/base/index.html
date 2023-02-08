@@ -17,36 +17,42 @@
 
 
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 	<link href="https://fonts.googleapis.com/css2?family=Russo+One&display=swap" rel="stylesheet">
 
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=Russo+One&display=swap" rel="stylesheet">
-
+    
 	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
 	<link id="theme-style" rel="stylesheet" type="text/css" href="">
+    <link rel="stylesheet" href="{% static 'css/images/background.jpg' %}">
+
+
 </head>
 <body>
 
+
 	<section class="s1">
+
+		<div class="intro-wrapper">
+			{% include 'base/navbar.html' %}
+
+				<div id="theme-options-wrapper">
+					<div data-mode="light" id="light-mode" class="theme-dot"></div>
+					<div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+					<div data-mode="green" id="green-mode" class="theme-dot"></div>
+					<div data-mode="purple" id="purple-mode" class="theme-dot"></div>
+				</div>
+
+				<p id="settings-note">*Theme settings will be saved for<br>your next vist</p>
+			</div>
+
 		<div class="main-container">
 			<div class="greeting-wrapper">
 				<h1>Hi, I'm Mary</h1>
 			</div>
 
-
-			<div class="intro-wrapper">
-				{% include 'base/navbar.html' %}
-
-					<div id="theme-options-wrapper">
-						<div data-mode="light" id="light-mode" class="theme-dot"></div>
-						<div data-mode="blue" id="blue-mode" class="theme-dot"></div>
-						<div data-mode="green" id="green-mode" class="theme-dot"></div>
-						<div data-mode="purple" id="purple-mode" class="theme-dot"></div>
-					</div>
-
-					<p id="settings-note">*Theme settings will be saved for<br>your next vist</p>
-				</div>
-
+			<section class="s2">
 				<div class="right-column">
 
 					<div id="preview-shadow">
@@ -60,11 +66,12 @@
 						</div>
 					</div>
 				</div>
-			</div>
+			</section>
 		</div>
+		    
 	</section>
 
-	<section class="s2">
+	
 		<div class="main-container">
 
 			<div class="about-wrapper">
@@ -100,7 +107,7 @@
 			</div>
 
 		</div>
-	</section>
+	
 
 	<section class="s1">
 		<div class="main-container">

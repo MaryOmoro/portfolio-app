@@ -1,20 +1,21 @@
 
 :root{
-	--mainColor:#eaeaea;
-	--secondaryColor:#fff;
+	--mainColor:#2042d6;
+	--secondaryColor:rgb(36, 209, 186);
 
-	--borderColor:#c1c1c1;
+	--borderColor:black;
 
 	--mainText:black;
-	--secondaryText:#4b5156;
+	--secondaryText:black;
 
 	--themeDotBorder:#24292e;
 
 	--previewBg:rgb(251, 249, 243, 0.8);
 	--previewShadow:#f0ead6;
 
-
-	--buttonColor:black;
+    
+	--buttonColor:rgb(17, 145, 219);
+	
 
 
 }
@@ -24,6 +25,7 @@ html, body{
 	padding: 0;
 	margin: 0;
 	scroll-behavior: smooth;
+	
 }
 
 body *{
@@ -34,12 +36,12 @@ body *{
 h1, h2, h3, h4, h5, h6, strong{
 	color: var(--mainText);
 	font-family: 'Russo One', sans-serif;
-	font-weight: 500;
+	font-weight: 300;
 }
 
 p, li, span, label, input, textarea{
 	color: var(--secondaryText);
-	font-family: 'Roboto Mono', monospace;
+	font-family: sans-serif;
 }
 
 a{
@@ -89,7 +91,7 @@ h6 { font-size: 16px;}
 }
 
 .intro-wrapper{
-	background-color: var(--secondaryColor);
+	background-color: #17a2b8;
 	border:1px solid var(--borderColor);
 	border-radius:5px 5px 0 0;
 
@@ -113,8 +115,8 @@ h6 { font-size: 16px;}
 	border-bottom: 1px solid var(--borderColor);
 	display: flex;
 	justify-content: space-between;
-	align-items: center;
-	background-color: var(--mainColor);
+	align-items: flex-end;
+	background-color: #FC6058;
 }
 
 #navigation a{
@@ -190,7 +192,7 @@ h6 { font-size: 16px;}
 		left: 50%;
 		transform: translateX(-50%);
 		border-radius: 0 0 5px 5px;
-		width: 95%;
+		width: 100%;
 		background-color: var(--previewShadow);
 		padding: 0;
 		z-index:998;
@@ -409,7 +411,7 @@ h6 { font-size: 16px;}
 .tag{
 	display:inline-block;
 	color:#fff;
-	background-color: #888;
+	background-color: rgb(12, 160, 135);
 	border-radius: 5px;
 	margin: 2px;
 	padding: 2px 5px;
@@ -455,7 +457,7 @@ h6 { font-size: 16px;}
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom:10px; 
-	color: #fff;
+	color: rgb(32, 17, 245);
 	background-color: var(--buttonColor);
 	border:none;
 }
@@ -464,7 +466,7 @@ h6 { font-size: 16px;}
 /* Login Page (START) */
 
 	#login-page-wrapper{
-		background: #eaeaea;
+		background: #08c6df;
 		height: 100vh;
 		display: flex;
 		align-items: center;
@@ -473,11 +475,11 @@ h6 { font-size: 16px;}
 
 	#login-form-wrapper{
 		width: 400px;
-		background: #fff;
+		background: rgb(16, 200, 233);
 		padding: 20px;
-		-webkit-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		-moz-box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
-		box-shadow: -1px 1px 3px -1px rgba(0,0,0,0.75);
+		-webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.938);
+		-moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.938);
+		box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.938);
 	}
 
 	@media screen and (max-width: 400px){
