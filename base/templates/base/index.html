@@ -1,6 +1,5 @@
-
-<!DOCTYPE html>
 {% load static %}
+<!DOCTYPE html>
 <html>
 <head>
 	<title>Mary Omoro</title>
@@ -25,92 +24,87 @@
     
 	<link rel="stylesheet" type="text/css" href="{% static 'css/default.css' %}">
 	<link id="theme-style" rel="stylesheet" type="text/css" href="">
-    <link rel="stylesheet" href="{% static 'css/images/sample.jpg' %}">
+    
 
 
 </head>
 <body>
+	
 
 	{% include 'base/navbar.html' %}
-	<section class="s1">
-
-		<div class="intro-wrapper">
 			
-
-				<div id="theme-options-wrapper">
-					<div data-mode="light" id="light-mode" class="theme-dot"></div>
-					<div data-mode="blue" id="blue-mode" class="theme-dot"></div>
-					<div data-mode="green" id="green-mode" class="theme-dot"></div>
-					<div data-mode="purple" id="purple-mode" class="theme-dot"></div>
-				</div>
-
-				<p id="settings-note">*Theme settings will be saved for<br>your next vist</p>
+	<section class="s1">
+		<div class="right-column">
+			<div id="theme-options-wrapper">
+				<div data-mode="light" id="light-mode" class="theme-dot"></div>
+				<div data-mode="blue" id="blue-mode" class="theme-dot"></div>
+				<div data-mode="green" id="green-mode" class="theme-dot"></div>
+				<div data-mode="purple" id="purple-mode" class="theme-dot"></div>
 			</div>
+
+			<p id="settings-note">*Theme settings will be saved for<br>your next visit</p>
+		</div>
 
 		<div class="main-container">
 			<div class="greeting-wrapper">
 				<h1>Hi, I'm Mary</h1>
+				<p> A startup developer. A lover of innovation and anything that generates knowledge.</p>
 			</div>
 
-			<section class="s2">
-				<div class="right-column">
-
-					<div id="preview-shadow">
-						<div id="preview">
-							<div id="corner-tl" class="corner"></div>
-							<div id="corner-tr" class="corner"></div>
-							<h3>What I Do</h3>
-							<p>startup developer.</p>
-							<div id="corner-br" class="corner"></div>
-							<div id="corner-bl" class="corner"></div>
-						</div>
-					</div>
-				</div>
-			</section>
-		</div>
-		    
-	</section>
-
+			
 	
-		<div class="main-container">
+	<div class="main-container">
 
-			<div class="about-wrapper">
+		<div class="about-wrapper">
 				<div class="about-me">
 					<h4>More about me</h4>
 
 					<p>I am passionate about django and python. Learning concepts in django.</p>
-                    <hr>
+					<p>Love learning new concepts and build projects just to tickle my brain.</p>
+                    
+					<hr>
 
 					<h4>TOP EXPERTISE</h4>
 
 					<p>Fullstack developer with primary focus on Django</p>
 
 					<div id="skills">
-						<ul>
-							<li>Python</li>
-							<li>Django</li>
-							<li>JavaScript</li>
-							<li>Postgres</li>
-						</ul>
-
-						<ul>
-	
-							<li>Heroku</li>
-							<li>HTML/CSS</li>
-						</ul>
-
+						
+					<div class="container">
+						<div class="row">
+							<div class="col-md-12">
+								<h3 class="progress-title">Python</h3>
+								<div class="progress">
+									<div class="progress-bar" style="width:65%; background:#97c513;">
+										<div class="progress-value">65%</div>
+									</div>
+								</div>
+								<h3 class="progress-title">Django</h3>
+								<div class="progress">
+									<div class="progress-bar" style="width:100%; background:#f2545b;">
+										<div class="progress-value">100%</div>
+									</div>
+								</div>
+								<h3 class="progress-title">Javascript</h3>
+								<div class="progress">
+									<div class="progress-bar" style="width:75%; background:#4286f4;">
+										<div class="progress-value">75%</div>
+									</div>
+								</div>
+								<h3 class="progress-title">Postgres</h3>
+								<div class="progress">
+									<div class="progress-bar" style="width:30%; background:#21ff63;">
+										<div class="progress-value">30%</div>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
-
 				</div>
-
-				
-			</div>
-
-		</div>
 	
 
-	<section class="s1">
-		<div class="main-container">
+		<section class="s1">
+			<div class="main-container">
 			<h3 style="text-align: center;">Some of my past projects</h3>
 
 			<div class="post-wrapper">

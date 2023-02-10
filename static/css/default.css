@@ -1,6 +1,6 @@
 
 :root{
-	--mainColor:#2042d6;
+	--mainColor:#18c8ce;
 	--secondaryColor:rgb(36, 209, 186);
 
 	--borderColor:black;
@@ -10,12 +10,12 @@
 
 	--themeDotBorder:#24292e;
 
-	--previewBg:rgba(30, 247, 247, 0.8);
+	--previewBg: blue;
 	--previewShadow:#13d5db;
 
     
 	--buttonColor:rgb(17, 145, 219);
-	
+
 
 
 }
@@ -36,7 +36,7 @@ body *{
 h1, h2, h3, h4, h5, h6, strong{
 	color: var(--mainText);
 	font-family: 'Russo One', sans-serif;
-	font-weight: 300;
+	font-weight: 200;
 }
 
 p, li, span, label, input, textarea{
@@ -63,17 +63,26 @@ h6 { font-size: 16px;}
 .sample{
 	height: 100px;
 	width: 100px;
+	display: flex;
+}
+.bg{
+	
+	background-repeat: no-repeat;
+	background-size: 1800px 900px;
+    background-position: top;
+    background-attachment: fixed;
 }
 .s1{
-	background-color: #17a2b8;
+	background-color: #ebf6f8;
 	border-bottom:1px solid var(--borderColor);
 	overflow:auto;
 }
 
 .s2{
-	background-color: #17a2b8;
+	background-color: #f1f6f7;
 	border-bottom:1px solid var(--borderColor);
 	overflow:auto;
+
 }
 
 
@@ -94,7 +103,7 @@ h6 { font-size: 16px;}
 }
 
 .intro-wrapper{
-	background-color: #17a2b8;
+	background-color: #e8f3f5;
 	border:1px solid var(--borderColor);
 	border-radius:5px 5px 0 0;
 
@@ -154,7 +163,65 @@ h6 { font-size: 16px;}
 
 .logo{
     height: 50px;
-    width: 80px;
+    width: 50px;
+	display: flex;
+	border-radius: 50%;
+	overflow: hidden;
+	margin-top: -6px
+}
+
+.progress-title {
+    font-size: 18px;
+    font-weight: 500;
+    color: rgb(5, 5, 5);
+    margin: 0 0 20px;
+	font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+.progress {
+    height: 20px;
+    background: #333;
+    border-radius: 0;
+    box-shadow: none;
+    margin-bottom: 30px;
+    overflow: visible
+}
+
+.progress .progress-bar {
+    position: relative;
+    -webkit-animation: animate-positive 2s;
+    animation: animate-positive 2s
+}
+
+.progress .progress-value {
+    display: block;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    position: absolute;
+    top: -30px;
+    right: -25px
+}
+
+.progress .progress-bar:after {
+    content: "";
+    display: inline-block;
+    width: 10px;
+    background: #fff;
+    position: absolute;
+    top: -10px;
+    bottom: -10px;
+    right: -5px;
+    z-index: 1;
+    transform: rotate(35deg)
+}
+
+h1 {
+    text-align: center
+}
+
+body {
+    background: linear-gradient(to right, #d9a7c7, #fffcdc)
 }
 
 
@@ -265,11 +332,11 @@ h6 { font-size: 16px;}
 }
 
 #blue-mode{
-	background-color: #192734;
+	background-color: #6259b8;
 }
 
 #green-mode{
-	background-color: #78866b;
+	background-color: #6b866f;
 }
 
 #purple-mode{
@@ -293,7 +360,7 @@ h6 { font-size: 16px;}
 
 
 #preview-shadow{
-	background-color: var(--previewShadow);
+	background-color: white;
 	max-width: 300px;
 	height: 180px;
 	padding-left: 30px;
@@ -303,7 +370,7 @@ h6 { font-size: 16px;}
 #preview{
 	width: 300px;
 	border:1.5px solid #17a2b8;
-	background-color: var(--previewBg);
+	background-color: white;
 	padding:15px;
 	position: relative;
 }
@@ -351,7 +418,7 @@ h6 { font-size: 16px;}
 #skills{
 	display: flex;
 	justify-content: space-evenly;
-	background-color: var(--previewShadow);
+	background-color: rgb(225, 229, 236);
 }
 
 .social-links{
@@ -398,7 +465,7 @@ h6 { font-size: 16px;}
 }
 
 .post-intro{
-	color:#4b5156;
+	color:black;
 	font-size: 14px;
 }
 
@@ -411,7 +478,10 @@ h6 { font-size: 16px;}
 	padding: 2px 5px;
 	font-size: 12px;	
 }
+#contact-page-wrapper{
+	background-color: #d9a7c7;
 
+}
 
 #contact-form{
 	display: block;
@@ -420,9 +490,8 @@ h6 { font-size: 16px;}
 	border: 1px solid var(--borderColor);
 	padding: 15px;
 	border-radius: 5px;
-	background-color: var(--mainColor);
 	margin-bottom: 50px;
-
+	background-color: #d9a7c7;
 }
 
 #contact-form label{
@@ -439,7 +508,7 @@ h6 { font-size: 16px;}
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom:10px; 
-	background-color: var(--secondaryColor);
+	background-color: #dbe4e6;
 	border-radius: 5px;
 	border:1px solid var(--borderColor);
 	font-size: 14px;
@@ -451,8 +520,8 @@ h6 { font-size: 16px;}
 	width: 100%;
 	padding-top: 10px;
 	padding-bottom:10px; 
-	color: rgb(32, 17, 245);
-	background-color: var(--buttonColor);
+	color: rgb(221, 221, 224);
+	background-color: #1095ca;
 	border:none;
 }
 
@@ -460,16 +529,17 @@ h6 { font-size: 16px;}
 /* Login Page (START) */
 
 	#login-page-wrapper{
-		background: #08c6df;
 		height: 100vh;
 		display: flex;
 		align-items: center;
 		justify-content: center;
+		background-color: #d9a7c7;
 	}
 
 	#login-form-wrapper{
 		width: 400px;
-		background: rgb(16, 200, 233);
+		background: rgb(219, 230, 233);
+		color: black;
 		padding: 20px;
 		-webkit-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.938);
 		-moz-box-shadow: -1px 1px 3px -1px rgba(0, 0, 0, 0.938);

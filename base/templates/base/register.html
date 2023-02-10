@@ -4,7 +4,7 @@
 {% block content %}
 
 <style type="text/css">
-	
+ 
 	
 </style>
 
@@ -27,7 +27,13 @@
 		<h3 style="text-align: center">Register Account</h3>
 		<hr>
 		<form method="POST" action="?next={{ request.META.HTTP_REFERER }}">
-			{% csrf_token %}
+			{% csrf_token %}.author-pic{
+				width: 50px;
+				height: 50px;
+				border-radius: 50%;
+				margin-right: 10px;
+			}
+		
 			{{form|crispy}}
 			<input class="btn btn-primary btn-lg btn-block" type="submit" value="Login">
 		</form>
