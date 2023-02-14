@@ -1,10 +1,1 @@
-project-env/
-SECRET_KEY = 'django-insecure-%-t72jzh&fsmw7+lmkbj*ee&o&!x2f9x^ff(iqhks4ucko13d&'
-DEBUG = True
-
-ALLOWED_HOSTS = ['<app name in heroku>.herokuapp.com']
-DB_NAME='DB_NAME',
-DB_USER='DB_USER',
-DB_PASSWORD='DB_PASSWORD',
-DB_HOST='127.0.0.1',
-MODE='dev'
+.env
