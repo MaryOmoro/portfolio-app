@@ -50,7 +50,6 @@ INSTALLED_APPS = [
     'crispy_forms',
     
 ]
-CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'whitenoise.middleware.WhiteNoiseMiddleware',
@@ -62,7 +61,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
-
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 ROOT_URLCONF = 'portfolio.urls'
 
 TEMPLATES = [
@@ -91,7 +90,7 @@ WSGI_APPLICATION = 'portfolio.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': ' DB_NAME',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
         'USER': 'DB_USER',
         'PASSWORD': 'DB_PASSWORD',
         'HOST': 'DB_HOST',
