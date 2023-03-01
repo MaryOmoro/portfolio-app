@@ -145,7 +145,7 @@ def contact(request):
 	email = EmailMessage(request.POST['subject'],
 		template,
 		settings.EMAIL_HOST_USER,
-		['maryomoro2017@gmail.com']
+		['']
 		)
 		
 	email.fail_silently=False
