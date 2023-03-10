@@ -5,3 +5,9 @@ class BaseConfig(AppConfig):
     
     def ready(self):
     	import base.signals
+
+class UsersConfig(AppConfig):
+    name = 'users'
+
+    def ready(self):
+        import users.signals

@@ -123,10 +123,13 @@ def contact(request):
 	    
 		if form.is_valid():
 			name = form.cleaned_data['name']
-		
-
+			email = form.cleaned_data['email']
+			content = form.cleaned_data['content']
 			form.save()
+			messages.success(request, "Thanks for reaching out")
 			return JsonResponse({"name":name}, status=200)
+			
+			
 	    
 		else:
 			errors = form.errors.as_json()
@@ -150,8 +153,8 @@ def contact(request):
 		
 	email.fail_silently=False
 	email.send("SEND")
-	messages.success(request, "Thanks for reaching out!  Your message was successfully sent. I will do my best to get back to you in a timely manner")
-		
+	
+	messages.success(request, "Thanks for reaching out")	
 	
 	return render(request, 'base/contact.html')
 
@@ -257,7 +260,9 @@ def password_reset_request(request):
 						send_mail(subject, email, 'admin@example.com' , [user.email], fail_silently=False)
 					except BadHeaderError:
 						return HttpResponse('Invalid header found.')
-					return redirect ("/password_reset/done/")
+					
+					messages.success(request, 'A message with reset password instructions has been sent to your inbox.')
+					return redirect ("home")
 	password_reset_form = PasswordResetForm()
 	return render(request=request, template_name="base/password/password_reset.html", context={"password_reset_form":password_reset_form})	
 

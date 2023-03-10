@@ -11,6 +11,8 @@ def create_profile(sender, instance, created, **kwargs):
 			email=instance.email,
 			)
 		print("Profile Created!")
+	else:
+		instance.profile.save()
 
 
 def update_profile(sender, instance, created, **kwargs):
